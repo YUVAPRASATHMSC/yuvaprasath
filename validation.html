@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation Example</title>
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      
+      if (name === '' || email === '') {
+        alert('Please fill in all fields');
+        return false;
+      }
+      
+      // Basic email validation using a regular expression
+      var emailRegex = /\S+@\S+\.\S+/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return false;
+      }
+      
+      // Validation passed
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h1>Form Validation Example</h1>
+  <form onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
